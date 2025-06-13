@@ -1,0 +1,37 @@
+Syntax to Start Colab Local Runtime
+To start the Jupyter server in your colab_env environment and connect Google Colab:
+
+$ conda activate colab_env
+$ jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
+
+Steps:
+Run the above commands in your terminal.
+Copy the token URL from the terminal output (e.g., http://localhost:8888/?token=your_token_here).
+Open Google Colab (https://colab.research.google.com), click “Connect” > “Connect to local runtime,” paste the URL, and click “Connect.”
+Verify with !pwd in a Colab cell to confirm it’s accessing your local directory (e.g., /home/biminion/...).
+Notes:
+If port 8888 is in use, replace it with another (e.g., --port=8892) and update the URL in Colab.
+Ensure proxies are unset to avoid SSLEOFError
+
+$ unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+
+Syntax to Stop Colab Local Runtime
+To stop the Jupyter server and disconnect Colab:
+
+In the Terminal:
+Press Ctrl+C in the terminal where the Jupyter server is running.
+Confirm shutdown by typing y if prompted:
+
+Shutdown this notebook server (y/[n])? y
+
+This stops the server and disconnects Colab.
+Deactivate the Conda Environment (optional):
+
+$ conda deactivate
+
+Connecting Google Colab with Local Run time
+Paste the URL from your terminal into the "Backend URL" field and click "Connect."
+
+Example - http://127.0.0.1:8888/tree?token=73534d679100f1510a5321571d44d2fd8d214770fc67f134
+
+
