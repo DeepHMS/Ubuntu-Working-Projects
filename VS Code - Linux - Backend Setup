@@ -73,6 +73,10 @@ $ conda install pip
 Step 8: Install Required Python Packages
 Once your virtual environment (venv) is activated:
 $ source venv/bin/activate
+
+Note: $rm -rf venv #Delete a venv Environment
+
+Install Django
 $ pip install django djangorestframework django-import-export
 
 If using requirements.txt:
@@ -83,4 +87,10 @@ Use the correct Python when creating venv (e.g., Conda’s 3.9.18):
 $ /home/username/miniconda3/bin/python3.9 -m venv venv
 $ source venv/bin/activate
 $ python --version  # Should show Python 3.9.18
+
+Install Extensions: 
+
+$pip install pylint        #Pylint: For code linting:
+$pip install black         #Black: For code formatting:
+
 
