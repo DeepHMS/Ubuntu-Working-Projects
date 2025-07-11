@@ -1,0 +1,86 @@
+NeuroDB Project Setup Guide
+Step 1: Open the Project Folder in VS Code
+1. Open your terminal:
+$ Ctrl + Alt + T
+
+2. Navigate to the project directory and open VS Code:
+$ cd ~/path/to/NeuroDB
+$ code .
+
+Step 2: Install Python (If Not Already Installed)
+Update system packages and install Python and pip:
+$ sudo apt update
+$ sudo apt install python3 python3-pip
+
+Check Python version:
+$ python3 --version
+
+Step 3: Set Up a Virtual Environment (venv)
+If a venv already exists, remove it before recreating:
+$ rm -rf venv
+
+Now create a new virtual environment (default uses system Python):
+$ python3 -m venv venv
+
+Activate the environment:
+$ source venv/bin/activate
+
+Check which Python is being used:
+$ which python
+$ which python3
+
+Step 4: Set Default Python Version (If Needed)
+List all installed Python alternatives:
+$ update-alternatives --list python
+
+Add a specific Python version (e.g., Python 3.9.18):
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+
+Step 5: Using Conda (Alternative Approach)
+Activate base environment:
+$ conda activate base
+$ python --version
+
+Install a specific Python version:
+$ conda install python=3.9.18
+
+Or create a new environment:
+$ conda create -n py3918 python=3.9.18
+$ conda activate py3918
+
+Step 6: Dealing with Proxy Errors (Conda)
+Check current proxy settings:
+$ env | grep -i proxy
+
+Set proxy environment variables (if applicable):
+$ export http_proxy=http://yourproxy:port
+$ export https_proxy=https://yourproxy:port
+
+Verify Conda proxy config:
+$ conda config --show | grep proxy
+
+Step 7: Check and Install pip
+Check pip version:
+$ pip --version
+
+Install pip if needed:
+$ sudo apt update
+$ sudo apt install python3-pip
+
+Inside a Conda environment:
+$ conda install pip
+
+Step 8: Install Required Python Packages
+Once your virtual environment (venv) is activated:
+$ source venv/bin/activate
+$ pip install django djangorestframework django-import-export
+
+If using requirements.txt:
+$ pip install -r requirements.txt
+
+Helpful Tip: Switching Between Python Versions
+Use the correct Python when creating venv (e.g., Conda’s 3.9.18):
+$ /home/username/miniconda3/bin/python3.9 -m venv venv
+$ source venv/bin/activate
+$ python --version  # Should show Python 3.9.18
+
