@@ -1,0 +1,96 @@
+**Connect your local project (with the virtual environment) to GitHub and push it**
+
+Step 1: Initialize Git in your project folder
+
+$ git init
+
+Step 2: Create a .gitignore file to exclude unnecessary files/folders
+
+Create a file named .gitignore in your project root with at least these contents to exclude the virtual environment and other unwanted files:
+
+$ nano .gitignore
+
+Paste the following inside .gitignore:
+
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+*.env
+*.DS_Store
+*.egg-info/
+*.pytest_cache/
+.env
+.idea/
+.vscode/
+
+Step 3: Add and commit your files
+
+$ git add . 
+
+$ git commit -m "Initial commit of NeuroDB project"
+
+Add your GitHub repo as remote origin:
+
+$ git remote add origin https://github.com/DeepHMS/Steen_BrainDB-Backend.git #Add your GitHub repo as remote origin
+
+Step 4: Step-by-Step: Set Up SSH for GitHub and Push Your Code
+
+Use SSH Instead of HTTPS (Recommended): This avoids TLS entirely and is the most stable for long-term use.
+
+$ ls ~/.ssh #Check if you have SSH keys:
+
+$ ssh-keygen -t ed25519 -C "your_email@example.com" - Replace "your_email@example.com" with your GitHub email.
+
+$ cat ~/.ssh/id_ed25519.pub #you will get a key - Copy that key
+
+Step 5: Add the SSH Key to GitHub
+
+Click: https://github.com/settings/keys
+
+i. Go to GitHub SSH Keys Settings
+
+ii. Click “New SSH Key”
+
+iii. Give it a title like “NeuroDB Dev Machine”
+
+iv. Paste the copied key into the Key box
+
+v. Click “Add SSH key”
+
+Step 6: Change Git Remote to Use SSH - Replace the current HTTPS remote with SSH
+
+$ git remote set-url origin git@github.com:DeepHMS/Steen_BrainDB-Backend.git
+
+$ git remote -v
+
+$ git push -u origin main # Push Your Code to GitHub
+
+------------------------------------------------------------------------------------------------------------------------------------------
+__________________________________________________________________________________________________________________________________________
+
+**Initial Setup on a New VS Code or Machine - Git Fetch**
+
+If you're setting up a new VS Code environment (or a new machine), you’ll usually use git clone first, and then later use git pull to get updates.
+
+$ git clone git@github.com:DeepHMS/Steen_BrainDB-Backend.git # Clone the repo from GitHub
+
+$ cd Steen_BrainDB-Backend
+
+$ git fetch origin
+
+$ git merge origin/main
+
+$ git pull
+
+
+#Note
+
+git fetch	Downloads updates, but does not apply them
+
+git merge	Applies fetched changes to your local branch
+
+git pull	Does both: fetch + merge
