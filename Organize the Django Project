@@ -1,0 +1,100 @@
+Organize the Django Project
+
+$python3 -m venv venv
+
+$source venv/bin/activate
+
+**Install Django and dependencies used in your files**
+
+$pip install django djangorestframework django-import-export
+
+**Install the “Django” extension - Optional**
+
+$pip install pylint             # Pylint: For code linting
+
+$pip install black              # Black: For code formatting
+
+**Create an app folder**
+
+$mkdir neurodb_app
+
+$mv serializers_test.py admin_test.py models_test.py neurodb_app/
+
+**Rename files to standard Django names (optional but recommended)**
+
+$mv neurodb_app/serializers_test.py neurodb_app/serializers.py
+
+$mv neurodb_app/admin_test.py neurodb_app/admin.py
+
+$mv neurodb_app/models_test.py neurodb_app/models.py
+
+**Creates a new Django project named neurodb_project**
+
+Initializes key Django files like manage.py, settings.py, urls.py, and wsgi.py
+The dot . at the end is crucial:
+It tells Django to place the project files into the current directory instead of creating a subfolder.
+
+$django-admin startproject neurodb_project .
+
+**Current Project Structure: **
+
+NeuroDB/
+├── manage.py
+
+├── neurodb_project/       # Django project config
+
+│   ├── __init__.py
+
+│   ├── settings.py
+
+│   ├── urls.py
+
+│   ├── asgi.py
+
+│   └── wsgi.py
+
+├── neurodb_app/           # Your custom app
+
+│   ├── admin.py
+
+│   ├── models.py
+
+│   └── serializers.py
+
+├── Study_1_*.csv          # Data files
+
+├── Master_Gene_File.csv
+
+└── venv/
+
+manage.py — A command-line tool to run and manage your Django project (like starting the server or creating a database).
+
+neurodb_project
+
+__init__.py — Marks this folder as a Python module (needed for Python to recognize it as code).
+
+settings.py — The master control panel: stores all the settings for the project (like database, apps, etc.).
+
+urls.py — The traffic controller: defines how URLs are routed to the right part of your app.
+
+asgi.py — Connects your project to servers using ASGI (for real-time/websocket support).
+
+wsgi.py — Connects your project to WSGI-compatible web servers (used for deployment).
+
+neurodb_app
+
+admin.py — Tells Django how to show your data in the built-in admin dashboard.
+
+models.py — Defines the structure of your database (what kind of data you want to store).
+
+serializers.py — Converts your data to/from formats like JSON (used in APIs).
+
+Create and apply migrations
+
+$ python manage.py makemigrations
+
+$ python manage.py migrate
+
+**Run the development server**
+
+$ python manage.py runserver
