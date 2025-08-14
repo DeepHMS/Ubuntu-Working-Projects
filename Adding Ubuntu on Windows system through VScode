@@ -1,0 +1,27 @@
+ Install VS Code
+
+Go to https://code.visualstudio.com/.
+Download and install Visual Studio Code for Windows.
+During installation, check "Add to PATH" so you can run code from the terminal.
+
+1️⃣ Enable WSL2 on Windows
+
+Open PowerShell as Administrator and run: 
+
+$ wsl --install
+$ wsl --install -d Ubuntu-22.04 # for specific ubuntu
+
+This will:
+Enable Windows Subsystem for Linux (WSL)
+Enable Virtual Machine Platform
+Install the latest Ubuntu LTS by default (currently 22.04)
+Set WSL2 as default
+
+2️⃣ Restart Your PC - After the installation finishes, restart your computer to make sure WSL is fully enabled.
+
+3️⃣ Open Ubuntu for First-Time Setup
+
+After restart:
+Press Windows Key and search for Ubuntu 22.04
+Launch it, and it will finalize the installation
+You’ll be asked to set a username and password for your Linux environment
